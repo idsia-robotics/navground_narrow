@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import numpy as np
 from navground import core
 from shapely import geometry as g
