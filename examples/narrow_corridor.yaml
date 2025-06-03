@@ -1,0 +1,38 @@
+---
+time_step: 0.1
+steps: 1200
+record_pose: true
+scenario:
+  type: Corridor
+  length: 10.0
+  width: 0.5
+  groups:
+    -
+      type: thymio
+      color: gold
+      number: 10
+      radius: 0.08
+      control_period: 0.1
+      speed_tolerance: 0.02
+      kinematics:
+        type: 2WDiff
+        wheel_axis: 0.094
+        max_speed: 0.166
+      behavior:
+        type: HL
+        optimal_speed:
+          sampler: uniform
+          from: 0.07
+          to: 0.15
+        horizon: 10.0
+        safety_margin: 0.05
+        barrier_angle: 1.2
+        modulations:
+          - type: FollowLeader
+            enabled:
+              sampler: sequence
+              once: true
+              values: [true, true]
+      state_estimation:
+        type: Bounded
+        range: 4.0

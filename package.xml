@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>navground_narrow</name>
+  <version>0.0.0</version>
+  <description>Navground components that
+explore navigation in  narrow spaces.</description>
+  <maintainer email="jerome@idsia.ch">Jerome Guzzi</maintainer>
+  <license>MIT</license>
+  <test_depend>ament_copyright</test_depend>
+  <test_depend>ament_flake8</test_depend>
+  <test_depend>ament_pep257</test_depend>
+  <test_depend>python3-pytest</test_depend>
+  <depend>navground_sim</depend>
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>

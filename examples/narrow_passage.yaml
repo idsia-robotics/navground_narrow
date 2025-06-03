@@ -1,0 +1,54 @@
+---
+time_step: 0.1
+steps: 600
+record_pose: true
+scenario:
+  type: CorridorWithNarrowPassage
+  length: 10.0
+  width: 2.5
+  narrow_width: 1.0
+  narrow_length: 1.0
+  add_modulation: [false, true]
+  groups:
+    - number: 4
+      type: human
+      radius:
+        sampler: uniform
+        from: 0.15
+        to: 0.3
+      color: blue
+      kinematics:
+        type: Ahead
+        max_speed: 1.5
+        max_angular_speed: 3.0
+      behavior:
+        type: HL
+        optimal_speed:
+          sampler: uniform
+          from: 0.7
+          to: 1.2
+        horizon: 8.0
+        safety_margin: 0.01
+        barrier_angle: 1.5
+      state_estimation:
+        type: Bounded
+        range: 12.0
+      id: [0, 1]
+    - number: 2
+      type: wheelchair
+      color: grey
+      radius: 0.4
+      kinematics:
+        type: 2WDiff
+        wheel_axis: 0.6
+        max_speed: 1.2
+      behavior:
+        type: HL
+        optimal_speed: 1.0
+        horizon: 8.0
+        safety_margin: 0.01
+        barrier_angle: 1.5
+      state_estimation:
+        type: Bounded
+        range: 12.0
+      id: [0, 1]
